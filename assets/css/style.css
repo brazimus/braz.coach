@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "PT Serif", serif;
   background-color: #040404;
   color: #fff;
   position: relative;
@@ -45,7 +45,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Gloock", serif;
 }
 
 /*--------------------------------------------------------------
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gloock", serif;
 }
 
 #header h1 a, #header h1 a:hover {
@@ -221,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Trocchi", serif;
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
@@ -370,7 +370,7 @@ section .container {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
+  font-family: "Trocchi", serif;
 }
 
 .section-title h2::after {
@@ -388,7 +388,7 @@ section .container {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gloock", serif;
   color: #fff;
 }
 
@@ -465,7 +465,7 @@ section .container {
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Gloock", serif;
   font-size: 14px;
 }
 
@@ -485,7 +485,7 @@ section .container {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gloock", serif;
   color: #fff;
 }
 
@@ -633,7 +633,7 @@ section .container {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "PT Serif", serif;
   color: #18d26e;
   margin-bottom: 10px;
 }
