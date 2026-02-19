@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Newsreader", serif;
+  font-family: "IBM Plex Serif", serif;
   background-color: #040404;
   color: #fff;
   position: relative;
@@ -633,7 +633,7 @@ section .container {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Newsreader", serif;
+  font-family: "IBM Plex Serif", serif;
   color: #18d26e;
   margin-bottom: 10px;
 }
