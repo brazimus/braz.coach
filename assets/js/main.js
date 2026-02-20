@@ -244,4 +244,53 @@
     }
   });
 
+  /**
+   * Contact Form submission handler
+   */
+  const contactForm = select('form[action="/submit"]');
+  if (contactForm) {
+    on('submit', 'form[action="/submit"]', function(e) {
+      e.preventDefault();
+
+      let thisForm = this;
+      let action = thisForm.getAttribute('action');
+      let loading = thisForm.querySelector('.loading');
+      let errorMessage = thisForm.querySelector('.error-message');
+      let sentMessage = thisForm.querySelector('.sent-message');
+
+      loading.classList.add('d-block');
+      errorMessage.classList.remove('d-block');
+      sentMessage.classList.remove('d-block');
+      
+      const formData = new FormData(thisForm);
+
+      fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: {'X-Requested-With': 'XMLHttpRequest'}
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      })
+      .then(data => {
+        loading.classList.remove('d-block');
+        if (data.trim() == 'OK') {
+          sentMessage.classList.add('d-block');
+          thisForm.reset(); 
+        } else {
+          throw new Error(data ? data : 'Form submission failed and no error message was provided.');
+        }
+      })
+      .catch((error) => {
+        loading.classList.remove('d-block');
+        errorMessage.innerHTML = error.toString();
+        errorMessage.classList.add('d-block');
+      });
+    });
+  }
+
 })()
