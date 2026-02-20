@@ -23,22 +23,22 @@ export async function onRequestPost({ request, env }) {
       });
     }
 
-    // --- Construct forwardemail.net API Payload ---
-    // The body needs to be URL-encoded form data
-    const apiPayload = new URLSearchParams();
-    apiPayload.append('to', env.TO_EMAIL);
-    apiPayload.append('from', `"${body.name}" <${env.FORWARDEMAIL_USERNAME}>`);
-    apiPayload.append('replyTo', `"${body.name}" <${body.email}>`);
-    apiPayload.append('subject', `New Contact Form Submission: ${body.subject}`);
-    apiPayload.append('html', `
-      <p>You have received a new message from your website contact form.</p>
-      <hr>
-      <p><b>Name:</b> ${body.name}</p>
-      <p><b>Email:</b> ${body.email}</p>
-      <hr>
-      <p><b>Message:</b></p>
-      <p>${body.message.replace(/\n/g, '<br>')}</p>
-    `);
+    // --- Construct forwardemail.net API Payload as JSON ---
+    const apiPayload = {
+      to: [env.TO_EMAIL], // API expects an array of emails
+      from: `"${body.name}" <${env.FORWARDEMAIL_USERNAME}>`,
+      replyTo: `"${body.name}" <${body.email}>`,
+      subject: `New Contact Form Submission: ${body.subject}`,
+      html: `
+        <p>You have received a new message from your website contact form.</p>
+        <hr>
+        <p><b>Name:</b> ${body.name}</p>
+        <p><b>Email:</b> ${body.email}</p>
+        <hr>
+        <p><b>Message:</b></p>
+        <p>${body.message.replace(/\n/g, '<br>')}</p>
+      `,
+    };
 
     // --- Create Basic Auth Header ---
     const basicAuth = btoa(`${env.FORWARDEMAIL_USERNAME}:${env.FORWARDEMAIL_PASSWORD}`);
@@ -48,9 +48,9 @@ export async function onRequestPost({ request, env }) {
       method: 'POST',
       headers: {
         'Authorization': `Basic ${basicAuth}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json', // Send as JSON
       },
-      body: apiPayload,
+      body: JSON.stringify(apiPayload), // Stringify the JSON payload
     });
 
     const apiResponse = await fetch(apiRequest);
