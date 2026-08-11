@@ -4,6 +4,10 @@
 * hides the others (one open at a time), updates aria-expanded on the
 * trigger, and keeps the URL hash in sync for deep-linking. Defaults to the
 * Experience section open on load unless a different section is hash-linked.
+* Two nav sets exist in the DOM -- the hero tab pills and the sticky bar
+* that clones them (CSS `position: sticky`, no JS needed for the sticking
+* itself) -- both are driven by the same navLinks/brands collections so
+* they always stay in sync with each other.
 * If JS never runs, style.css's `noscript` rule forces every section visible.
 */
 (function () {
@@ -11,9 +15,9 @@
 
   var DEFAULT_SECTION = "experience";
 
-  var navLinks = [].slice.call(document.querySelectorAll("nav.hero-nav a[data-target]"));
+  var navLinks = [].slice.call(document.querySelectorAll("nav.hero-nav a[data-target], nav.sticky-nav a[data-target]"));
   var sections = [].slice.call(document.querySelectorAll("main section[data-panel]"));
-  var brand = document.querySelector(".brand-home");
+  var brands = [].slice.call(document.querySelectorAll(".brand-home"));
 
   function showPanel(id, scroll) {
     sections.forEach(function (s) {
@@ -54,14 +58,14 @@
     });
   });
 
-  if (brand) {
+  brands.forEach(function (brand) {
     brand.addEventListener("click", function (e) {
       e.preventDefault();
       hideAll();
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", location.pathname + location.search);
     });
-  }
+  });
 
   var initialHash = window.location.hash.replace("#", "");
   var initialSection = (initialHash && document.getElementById(initialHash)) ? initialHash : DEFAULT_SECTION;

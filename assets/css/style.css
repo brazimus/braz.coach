@@ -137,15 +137,18 @@ p.role-line {
 }
 p.role-line strong { color: var(--ink); }
 nav.hero-nav {
-  font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-dim);
-  display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
 }
-nav.hero-nav a { position: relative; text-decoration: none; color: var(--ink-dim); padding: 6px 4px; transition: color .2s; }
-nav.hero-nav a:hover { color: var(--accent); }
-nav.hero-nav a::before { content: "\203a"; opacity: 0; margin-right: 4px; color: var(--accent); transition: opacity .15s; }
-nav.hero-nav a.is-active { color: var(--accent); }
-nav.hero-nav a.is-active::before { opacity: 1; }
-nav.hero-nav .sep { color: var(--ink-faint); }
+nav.hero-nav a {
+  text-decoration: none; color: var(--ink-dim);
+  padding: 9px 16px; border: 1px solid var(--rule); border-radius: 6px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+nav.hero-nav a:hover { border-color: var(--accent); color: var(--accent); }
+nav.hero-nav a.is-active {
+  background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600;
+}
 .socials { display:flex; gap: 12px; margin-top: 36px; }
 .socials a {
   width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--rule);
@@ -155,7 +158,29 @@ nav.hero-nav .sep { color: var(--ink-faint); }
 .socials a:hover { border-color: var(--accent); color: var(--accent); }
 .socials svg { width: 15px; height: 15px; }
 
+/* Sticky secondary nav: mirrors the hero pills, sits just below the hero
+   content in normal flow, and pins to the top once you scroll past it --
+   pure CSS `position: sticky`, no scroll listener needed. */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13,18,22,.94); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.sticky-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; }
+.sticky-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.sticky-links { display: flex; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-x: auto; }
+.sticky-links a {
+  text-decoration: none; color: var(--ink-dim); white-space: nowrap;
+  padding: 7px 13px; border: 1px solid var(--rule); border-radius: 6px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.sticky-links a:hover { border-color: var(--accent); color: var(--accent); }
+.sticky-links a.is-active {
+  background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600;
+}
+
 main section[data-panel] {
+  scroll-margin-top: 76px;
   display: none;
   padding: 76px 0; border-top: 1px solid var(--rule);
 }
@@ -259,6 +284,8 @@ footer.site-footer { padding: 30px 0 70px; text-align:center; font-family:'JetBr
   .cert-grid { grid-template-columns: 1fr; }
   .status-row { grid-template-columns: 1fr; }
   .status-row .label { padding-bottom: 6px; }
+  .sticky-nav-inner { padding: 12px 20px; }
+  .sticky-brand { display: none; }
 }
 
 /* ---------- accessibility: reduced motion ---------- */
@@ -280,7 +307,7 @@ noscript main section[data-panel] { display: block !important; }
 #print-resume { display: none; }
 
 @media print {
-  .concept-tag, header.hero, main, footer.site-footer { display: none !important; }
+  .concept-tag, header.hero, .sticky-nav, main, footer.site-footer { display: none !important; }
   #print-resume { display: block !important; }
 
   @page { size: letter; margin: 0.5in 0.75in; }
