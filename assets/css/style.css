@@ -78,6 +78,7 @@
   --ink-faint: #56636c;
   --accent: #49d8bf;
   --accent-dim: rgba(73,216,191,.14);
+  --accent-muted: rgba(73,216,191,.6);
   --amber: #f2a65a;
   --rule: rgba(231,237,241,.10);
   --maxw: 1060px;
@@ -174,17 +175,30 @@ p.role-line strong { color: var(--ink); }
   border-bottom: 1px solid var(--rule);
 }
 .sticky-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 32px; }
-.sticky-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: none; white-space: nowrap; }
-.sticky-links { display: flex; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-x: auto; }
-.sticky-links a {
-  text-decoration: none; color: var(--ink-dim); white-space: nowrap;
-  padding: 9px 16px; border: 1px solid var(--rule); border-radius: 6px;
-  transition: border-color .2s, color .2s, background .2s;
+
+/* Left: the "~/braz.coach $ <command>" prompt. Only the path is a link
+   (home/reset); the command text mirrors whichever section is open and is
+   deliberately muted so it doesn't compete with the active nav item. */
+.sticky-prompt-line {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden;
 }
-.sticky-links a:hover { border-color: var(--accent); color: var(--accent); }
-.sticky-links a.is-active {
-  background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600;
+.sticky-prompt { color: var(--accent); text-decoration: none; }
+.sticky-prompt:hover { text-decoration: underline; }
+.sticky-sep { color: var(--ink-faint); }
+.sticky-cmd { color: var(--accent-muted); }
+.sticky-caret {
+  display: inline-block; width: 7px; height: 14px; background: var(--accent);
+  animation: blink 1.1s steps(1) infinite; flex-shrink: 0;
 }
+
+/* Right: minimal nav list -- no pills, no borders. Active section is teal
+   with a leading chevron; everything else stays quiet. */
+.sticky-navlist { display: flex; gap: 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-x: auto; }
+.sticky-navlist a { text-decoration: none; color: var(--ink-faint); white-space: nowrap; transition: color .2s; }
+.sticky-navlist a:hover { color: var(--ink-dim); }
+.sticky-navlist a.is-active { color: var(--accent); font-weight: 600; }
+.sticky-navlist a.is-active::before { content: "\276f"; margin-right: 4px; }
 
 main section[data-panel] {
   scroll-margin-top: 76px;
@@ -292,13 +306,15 @@ footer.site-footer { padding: 30px 0 70px; text-align:center; font-family:'JetBr
   .status-row { grid-template-columns: 1fr; }
   .status-row .label { padding-bottom: 6px; }
   .sticky-nav-inner { padding: 12px 20px; }
-  .sticky-brand { display: none; }
+  .sticky-cmd, .sticky-caret { display: none; }
+  .sticky-navlist { gap: 12px; }
 }
 
 /* ---------- accessibility: reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .prompt .caret { animation: none; opacity: 1; }
+  .sticky-caret { animation: none; opacity: 1; }
   .status .pulse { animation: none; box-shadow: none; }
   main section[data-panel].is-open { animation: none; }
   .scroll-cue.is-visible { animation: none; }
