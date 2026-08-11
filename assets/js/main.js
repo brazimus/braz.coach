@@ -4,10 +4,10 @@
 * hides the others (one open at a time), updates aria-expanded on the
 * trigger, and keeps the URL hash in sync for deep-linking. Defaults to the
 * Experience section open on load unless a different section is hash-linked.
-* Two nav sets exist in the DOM -- the hero tab pills and the sticky bar
-* that clones them (CSS `position: sticky`, no JS needed for the sticking
-* itself) -- both are driven by the same navLinks/brands collections so
-* they always stay in sync with each other.
+* The nav sits right below the hero and pins to the top of the viewport on
+* scroll (CSS `position: sticky` -- no JS needed for the sticking itself).
+* Two separate "Braz Brandt" brand-home links exist (hero headline + nav
+* bar) and both reset to the top on click.
 * If JS never runs, style.css's `noscript` rule forces every section visible.
 */
 (function () {
@@ -15,7 +15,7 @@
 
   var DEFAULT_SECTION = "experience";
 
-  var navLinks = [].slice.call(document.querySelectorAll("nav.hero-nav a[data-target], nav.sticky-nav a[data-target]"));
+  var navLinks = [].slice.call(document.querySelectorAll("nav.sticky-nav a[data-target]"));
   var sections = [].slice.call(document.querySelectorAll("main section[data-panel]"));
   var brands = [].slice.call(document.querySelectorAll(".brand-home"));
 
