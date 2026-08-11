@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Exiting the Hero Trap · Braz Brandt</title>
+  <meta name="description" content="FedAgile 2026 talk: the leadership shift from technical expert to post-heroic leader. Slides and key takeaways from Braz Brandt.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Exiting the Hero Trap">
+  <meta property="og:description" content="Shifting from Technical Expert to Post-Heroic Leader — a FedAgile 2026 talk by Braz Brandt.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://braz.coach/hero-trap">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Gloock&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Page-specific styling for this standalone talk page. Reuses the site's
+       fonts/colors/card language but avoids the bare `section` selector and
+       fixed/absolute positioning that style.css uses to drive the single-page
+       app's JS-controlled section swapping on index.html — those rules would
+       otherwise hide this page's content (opacity: 0) or misposition it. */
+    body { position: static; min-height: 100vh; }
+    body::before { position: fixed; }
+
+    .talk-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 20px 60px 20px;
+    }
+
+    .talk-card {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 40px;
+      border-radius: 6px;
+    }
+
+    .talk-header {
+      padding: 0 0 20px 0;
+    }
+    .talk-header .back-link {
+      color: rgba(255, 255, 255, 0.6);
+      font-family: "Bitter", serif;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .talk-header .back-link:hover { color: #18d26e; }
+
+    .talk-hero .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaaaaa;
+      font-family: "Bitter", serif;
+    }
+    .talk-hero .eyebrow::after {
+      content: "";
+      width: 60px;
+      height: 1px;
+      display: inline-block;
+      background: #4ceb95;
+      margin: 4px 10px;
+      vertical-align: middle;
+    }
+    .talk-hero h1 {
+      font-family: "Gloock", serif;
+      font-size: 44px;
+      color: #fff;
+      margin: 10px 0 15px 0;
+      line-height: 1.1;
+    }
+    .talk-hero .subtitle {
+      font-family: "Bitter", serif;
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 10px;
+    }
+    .talk-hero .byline {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 25px;
+    }
+    .talk-hero .abstract {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .talk-links {
+      padding-top: 30px;
+    }
+    .talk-links .link-box {
+      display: flex;
+      align-items: center;
+      padding: 22px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: ease-in-out 0.3s;
+      text-decoration: none;
+      height: 100%;
+    }
+    .talk-links .link-box:hover {
+      background: #18d26e;
+    }
+    .talk-links .link-box:hover .link-title,
+    .talk-links .link-box:hover .link-sub {
+      color: #fff;
+    }
+    .talk-links .link-box:hover .link-icon {
+      background: #fff;
+      color: #18d26e;
+    }
+    .talk-links .link-icon {
+      font-size: 22px;
+      min-width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #18d26e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      transition: 0.3s;
+    }
+    .talk-links .link-title {
+      font-family: "Gloock", serif;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+    }
+    .talk-links .link-sub {
+      font-size: 13px;
+      color: #999;
+      transition: 0.3s;
+    }
+
+    .talk-footer {
+      padding-top: 30px;
+      font-size: 13px;
+      color: #777;
+    }
+    .talk-footer a { color: #18d26e; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <div class="talk-page">
+    <div class="talk-card">
+
+      <header class="talk-header">
+        <a class="back-link" href="index.html"><i class="bi bi-arrow-left"></i> braz.coach</a>
+      </header>
+
+      <div class="talk-hero">
+        <div class="eyebrow">FedAgile 2026 · Richmond</div>
+        <h1>Exiting the Hero Trap</h1>
+        <div class="subtitle">Shifting from Technical Expert to Post-Heroic Leader</div>
+        <div class="byline">Braz Brandt · Technology Director &amp; Director of Delivery Operations, Cigna</div>
+        <p class="abstract">
+          Most leaders get promoted into management because they were excellent individual contributors — then get little to no training in how to actually lead people. This talk names that trap, walks through the inner work of shifting from heroic to post-heroic leadership, and covers the practices that help it stick: two lenses to run before you act, and language for handing work back on purpose.
+        </p>
+      </div>
+
+      <div class="talk-links">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <a class="link-box" href="assets/presentations/hero-trap/exiting-the-hero-trap-slides.pdf" target="_blank" rel="noopener">
+              <span class="link-icon"><i class="bi bi-easel2"></i></span>
+              <span>
+                <span class="link-title">View the Slides</span><br>
+                <span class="link-sub">PDF · full deck</span>
+              </span>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="link-box" href="assets/presentations/hero-trap/exiting-the-hero-trap-key-takeaways.pdf" target="_blank" rel="noopener">
+              <span class="link-icon"><i class="bi bi-file-earmark-text"></i></span>
+              <span>
+                <span class="link-title">Key Takeaways</span><br>
+                <span class="link-sub">PDF · activity companion &amp; worksheet</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="talk-footer">
+        <a href="index.html">&larr; Back to braz.coach</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+
+</body>
+
+</html>
