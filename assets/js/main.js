@@ -7,15 +7,17 @@
 * The nav sits right below the hero and pins to the top of the viewport on
 * scroll (CSS `position: sticky` -- no JS needed for the sticking itself).
 * Two separate "Braz Brandt" brand-home links exist (hero headline + the
-* ~/braz.coach prompt in the sticky nav) and both reset to the top on click.
+* ~/braz.coach prompt in the sticky nav). Clicking either is "back to
+* start": both reset to the top of the page and to the About section with
+* the whoami prompt, regardless of whatever section was open before.
 *
 * The sticky nav's prompt (~/braz.coach $ <command>) mirrors whichever
 * section is open. On a section change, the command erases and retypes to
 * match -- the section itself opens immediately, the typing animation runs
 * alongside it rather than gating it, so switching sections never waits on
-* the animation. Collapsing everything (toggling the active section closed,
-* or clicking home) freezes the prompt on whatever command was last shown
-* rather than resetting it.
+* the animation. Toggling the active section closed (without clicking home)
+* collapses everything and freezes the prompt on whatever command was last
+* shown, rather than resetting it.
 *
 * A one-time-per-session scroll-cue chevron nudges first-time, cold
 * (no deep link) visitors toward scrolling past the hero; it cancels on
@@ -147,7 +149,8 @@
   brands.forEach(function (brand) {
     brand.addEventListener("click", function (e) {
       e.preventDefault();
-      hideAll();
+      showPanel(DEFAULT_SECTION, false);
+      updateStickyCmd(DEFAULT_SECTION, true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", location.pathname + location.search);
     });
