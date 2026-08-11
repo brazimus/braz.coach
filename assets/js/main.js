@@ -78,21 +78,22 @@
    * visit: a small scroll-cue chevron appears immediately at the bottom of
    * the hero (a plain #experience anchor -- native CSS scroll-behavior and
    * scroll-margin-top do the work, no JS needed for the scroll itself), and
-   * if nothing's been scrolled or clicked after 30s, the terminal prompt
+   * if nothing's been scrolled or clicked after 15s, the terminal prompt
    * "types" from whoami to cat experience.log (matching the section's own
    * experience.log label) and scrolls Experience into view as a fallback.
    * Any scroll or click cancels/hides both immediately. Runs at most once
-   * ever per browser (localStorage) -- after that the pattern is established.
+   * per browser session (sessionStorage) -- after that the pattern is
+   * established, but a new tab/session sees it fresh again.
    */
-  var INTRO_DELAY_MS = 30000;
+  var INTRO_DELAY_MS = 15000;
   var INTRO_KEY = "braz-coach-intro-seen";
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function introSeen() {
-    try { return localStorage.getItem(INTRO_KEY) === "1"; } catch (e) { return false; }
+    try { return sessionStorage.getItem(INTRO_KEY) === "1"; } catch (e) { return false; }
   }
   function markIntroSeen() {
-    try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
+    try { sessionStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
   }
 
   if (!initialHash && initialSection === DEFAULT_SECTION && !introSeen()) {
