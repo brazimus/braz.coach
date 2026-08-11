@@ -186,7 +186,7 @@ h2.section-h {
 }
 .hud::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
 .hud::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-.hud img { width: 100%; display: block; border-radius: 2px; }
+.hud img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 2px; }
 .hud-caption { font-family:'JetBrains Mono',monospace; font-size: 10.5px; color: var(--ink-faint); margin-top: 10px; letter-spacing: .04em; }
 .about-copy p.body { color: var(--ink-dim); font-size: 16.5px; margin: 0; }
 .about-copy em { color: var(--accent); font-style: normal; font-weight: 600; }
