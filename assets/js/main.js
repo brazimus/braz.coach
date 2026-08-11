@@ -70,4 +70,82 @@
   var initialHash = window.location.hash.replace("#", "");
   var initialSection = (initialHash && document.getElementById(initialHash)) ? initialHash : DEFAULT_SECTION;
   showPanel(initialSection, false);
+
+  /**
+   * One-time hero intro nudge. Experience is already open by default, but on
+   * most screens it's below the fold behind the hero -- a visitor who never
+   * scrolls never sees it. If a first-time, cold (no deep link) visitor
+   * hasn't scrolled or clicked anything after 30s, "type" the terminal
+   * prompt from whoami to cat experience.log (matching the section's own
+   * experience.log label) and scroll Experience into view. Any scroll or
+   * click cancels it immediately. Runs at most once ever per browser
+   * (localStorage) -- after that the pattern is established.
+   */
+  var INTRO_DELAY_MS = 30000;
+  var INTRO_KEY = "braz-coach-intro-seen";
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function introSeen() {
+    try { return localStorage.getItem(INTRO_KEY) === "1"; } catch (e) { return false; }
+  }
+  function markIntroSeen() {
+    try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
+  }
+
+  if (!initialHash && initialSection === DEFAULT_SECTION && !introSeen()) {
+    var cmdEl = document.querySelector(".prompt .cmd");
+    var introTimer = null;
+
+    function cancelIntro() {
+      if (introTimer) { clearTimeout(introTimer); introTimer = null; }
+      markIntroSeen();
+    }
+
+    function eraseText(el, speed, done) {
+      (function step() {
+        var text = el.textContent;
+        if (text.length > 0) {
+          el.textContent = text.slice(0, -1);
+          setTimeout(step, speed);
+        } else if (done) {
+          done();
+        }
+      })();
+    }
+
+    function typeText(el, text, speed, done) {
+      var i = 0;
+      (function step() {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) {
+          setTimeout(step, speed);
+        } else if (done) {
+          done();
+        }
+      })();
+    }
+
+    function runIntro() {
+      markIntroSeen();
+      var target = document.getElementById("experience");
+      if (!cmdEl || !target) return;
+      if (reduceMotion) {
+        cmdEl.textContent = "cat experience.log";
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+        return;
+      }
+      eraseText(cmdEl, 55, function () {
+        typeText(cmdEl, "cat experience.log", 55, function () {
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 400);
+        });
+      });
+    }
+
+    window.addEventListener("scroll", cancelIntro, { passive: true, once: true });
+    window.addEventListener("click", cancelIntro, { once: true });
+    introTimer = setTimeout(runIntro, INTRO_DELAY_MS);
+  }
 })();
