@@ -1,297 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Braz Brandt | Product Strategy &amp; Organizational Leadership</title>
-  <meta content="Braz Brandt is a product strategy and organizational leadership executive — Technology Director of Delivery Operations at Cigna Healthcare, and President of Agile Richmond." name="description">
-  <meta content="product management, product owner, organizational leadership, agile coach, delivery operations, Cigna, Richmond Virginia" name="keywords">
+  <meta name="description" content="Braz Brandt is a product strategy and organizational leadership executive &mdash; Technology Director of Delivery Operations at Cigna Healthcare, and President of Agile Richmond.">
+  <meta name="keywords" content="product management, product owner, organizational leadership, agile coach, delivery operations, Cigna, Richmond Virginia">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://braz.coach/">
+  <meta property="og:site_name" content="braz.coach">
+  <meta property="og:title" content="Braz Brandt | Product Strategy &amp; Organizational Leadership">
+  <meta property="og:description" content="Product strategy &amp; organizational leadership executive &mdash; 30 years building products people trust, and the teams that build them. Open to what&rsquo;s next.">
+  <meta property="og:image" content="https://braz.coach/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Braz Brandt &mdash; Product Strategy and Organizational Leadership">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Braz Brandt | Product Strategy &amp; Organizational Leadership">
+  <meta name="twitter:description" content="Product strategy &amp; organizational leadership executive &mdash; 30 years building products people trust, and the teams that build them. Open to what&rsquo;s next.">
+  <meta name="twitter:image" content="https://braz.coach/assets/img/og-image.jpg">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Gloock&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
+  <!-- Main CSS (includes self-hosted @font-face rules -- see assets/fonts/) -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- If JS never runs, force every section visible instead of permanently hidden -->
+  <noscript>
+    <style>main section[data-panel] { display: block !important; }</style>
+  </noscript>
 </head>
-
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+<header class="hero">
+  <div class="wrap">
+    <div class="prompt">~/braz.coach $ whoami<span class="caret" aria-hidden="true"></span></div>
+    <div class="status"><span class="pulse" aria-hidden="true"></span> building organizations that leverage change &middot; open to what&rsquo;s next</div>
+    <h1 class="name"><a class="brand-home" href="#">Braz Brandt</a><br><span class="accent">Product</span> + <span class="accent">Org Leadership</span></h1>
+    <p class="role-line">Technology Director, Delivery Operations at <strong>Cigna Healthcare</strong>. Thirty years designing the systems, products, and organizations that make delivery predictable &mdash; and enjoyable. Richmond, Virginia.</p>
+    <nav class="hero-nav" aria-label="Section navigation">
+      <a href="#about" data-target="about" aria-controls="about" aria-expanded="false">about</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#experience" data-target="experience" aria-controls="experience" aria-expanded="true">experience</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#credentials" data-target="credentials" aria-controls="credentials" aria-expanded="false">credentials</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#contact" data-target="contact" aria-controls="contact" aria-expanded="false">contact</a>
+    </nav>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/brazbrandt/" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg><span class="sr-only">LinkedIn</span></a>
+      <a href="https://bsky.app/profile/braz.me" title="Bluesky" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.8C10.6 8 6.4 4.8 3.6 4c-.9-.3-1.3.2-1.3 1v11c0 .5.4 1 1 1.1 3.2.4 6.7 3 8.7 5.4 2-2.4 5.5-5 8.7-5.4.6-.1 1-.6 1-1.1V5c0-.8-.4-1.3-1.3-1-2.8.8-7 4-8.4 6.8z"/></svg><span class="sr-only">Bluesky</span></a>
+      <a href="https://mastodon.social/@braz" title="Mastodon" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.3 6.7c-.4-2.9-3-5.2-6-5.6-.5-.1-2.4-.3-4.9-.3s-4.4.2-4.9.3c-2.9.4-5.5 2.5-6.1 5.5-.3 1.5-.3 3.1-.2 4.6.1 2.2.3 4.4 1.9 6.2 1.6 1.7 3.9 2.1 6.1 2.4.6.1 3.2.2 3.8.2v-3s-1.7.1-2.2 0c-2 0-3.6-.6-3.7-2.6.1-.1.1-.2.2-.2 1.2.2 2.6.4 4.4.4 1.4 0 2.7-.1 4-.3 2.5-.4 4.7-1.9 5-3.9.4-2.6.4-5.2 0-7.7z"/></svg><span class="sr-only">Mastodon</span></a>
+    </div>
+  </div>
+</header>
 
-      <h1><a href="index.html">Braz Brandt</a></h1>
-      <h2>I'm a <span>product strategy and organizational leadership</span> executive from Richmond, Virginia.</h2>
+<main>
+<section id="about" data-panel aria-label="About">
+  <div class="wrap">
+    <div class="section-label">about.md</div>
+    <div class="about-grid">
+      <div>
+        <div class="hud"><img src="assets/img/me.webp" alt="Braz Brandt" width="600" height="600" loading="lazy"></div>
+        <div class="hud-caption">img_braz.webp &middot; richmond, va</div>
+      </div>
+      <div class="about-copy">
+        <p class="body">I lead Delivery Operations — Ways of Working, DevOps &amp; Environments, and Release Management — for Cigna Healthcare's Individual &amp; Family Plans business, a Fortune 15, SOX-governed technology organization. It's where two threads of my career meet: <em>organizational leadership</em>, going back to standing up GuideStar's first Agile and Scrum practices as their Software Engineering Director, and <em>product</em>, from my later roles there as Product Owner for Charity Check&trade; and Product Manager for our public search engine and API products. Today those threads run together: I'm co-leading IFP's shift from a project-funded delivery model into an SVPG-inspired product operating model, and I teach a Strategyzer-influenced curriculum that trains Product Managers company-wide to run hypothesis-driven experiments. I still lead the organizational side, too, as President of Agile Richmond's board.</p>
+        <div class="kv">
+          <div><div class="k">Based in</div><div class="v">Richmond, VA</div></div>
+          <div><div class="k">Experience</div><div class="v">30+ years</div></div>
+          <div><div class="k">Focus</div><div class="v">Product &middot; Delivery &middot; Org Design</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+<section id="experience" data-panel aria-label="Experience">
+  <div class="wrap">
+    <div class="section-label">experience.log</div>
+    <h2 class="section-h">The roadmap so far</h2>
+    <div class="timeline">
+      
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2023 – Present</span>
+            <span class="node-place">Richmond, VA</span>
+          </div>
+          <h3>Technology Director, Delivery Operations</h3>
+          <p class="node-sub">Individual &amp; Family Plans at Cigna Healthcare</p>
+          <p class="node-body">Direct Delivery Operations across three integrated functions — Ways of Working, DevOps &amp; Environments, and Release Management — building the governance and portfolio practices that turn underbuilt delivery areas into predictable, auditable operations under SOX. Use DORA metrics to drive down lead time and feature cycle time, and co-leading IFP's shift from a project-funded delivery model into an SVPG-inspired product organization with distinct external-customer and internal-platform product lines. Co-developed and teach a Strategyzer-influenced curriculum that trains Product Managers company-wide to run hypothesis-driven experiments.</p>
+          <div class="chips"><span class="chip">Product Strategy</span><span class="chip">Delivery Operations</span><span class="chip">DevSecOps</span><span class="chip">GenAI</span><span class="chip">Coaching</span></div>
+        </div>
+      </div>
 
-      <div class="social-links">
-      	<a href="https://bsky.app/profile/braz.me" rel="me" class="bluesky" target="_blank"><i class="bi bi-bluesky"> </i></a>
-        <a href="https://mastodon.social/@braz" rel="me" class="mastodon" target="_blank"><i class="bi bi-mastodon"> </i></a>
-        <a href="https://www.linkedin.com/in/brazbrandt/" class="linkedin" target="_blank"> <i class="bi bi-linkedin"></i></a>
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2022 – 2023</span>
+            <span class="node-place">Richmond VA, Charlotte NC, Atlanta GA</span>
+          </div>
+          <h3>Vice President, Enterprise Agile Coach</h3>
+          <p class="node-sub">Truist</p>
+          <p class="node-body">Designed and aligned the enterprise technology operating model for a top-10 U.S. financial institution during a high-stakes post-merger integration. Used Intent-Based Leadership to build team autonomy ahead of a long-term handoff to internal owners.</p>
+          <div class="chips"><span class="chip">Operating Model</span><span class="chip">Org Design</span></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2020 – 2022</span>
+            <span class="node-place">Richmond, VA and Client Sites</span>
+          </div>
+          <h3>Enterprise Product and Agile Coach</h3>
+          <p class="node-sub">Eliassen Group</p>
+          <p class="node-body">Brought agility to a Fortune 100 mortgage company's mission-critical business rules program, and partnered with a Fortune 150 financial services client's second-line risk organization to build “Empowered Teams Aligned to Deliver Value.”</p>
+          <div class="chips"><span class="chip">Coaching</span><span class="chip">Risk & Compliance</span></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2019 – 2020</span>
+            <span class="node-place">Richmond, VA and Client Sites</span>
+          </div>
+          <h3>Enterprise Agile &amp; Product Coach</h3>
+          <p class="node-sub">CirrusLabs</p>
+          <p class="node-body">Helped a Big Four firm and a Fortune 50 company scale Agile with SAFe; aligned teams around value and shortened delivery cycle times for a Fortune 100 credit card operations division migrating to the cloud.</p>
+          <div class="chips"><span class="chip">SAFe</span><span class="chip">Scaling</span></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2017 – 2019</span>
+            <span class="node-place">Austin, TX / Richmond, VA and Client Sites</span>
+          </div>
+          <h3>Enterprise Agile Coach</h3>
+          <p class="node-sub">Agile Velocity</p>
+          <p class="node-body">Co-developed the Path to Agility&trade; transformation framework. Led Southwest Airlines Marketing's business agility pilot (millions in incremental revenue) and a 250-person Southwest IT team's 3-week scheduling-app launch that saved $5M in two months. Coached Texas Mutual Insurance from a 9-month to a 2-week release cadence.</p>
+          <div class="chips"><span class="chip">Experimentation</span><span class="chip">Scaled Delivery</span></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2014 – 2017</span>
+            <span class="node-place">Richmond, VA and Client Sites</span>
+          </div>
+          <h3>Sr. Agile Coach &amp; Engagement Lead</h3>
+          <p class="node-sub">SolutionsIQ</p>
+          <p class="node-body">Led a 20+ person consulting team scaling product delivery structures across a Fortune 100 retail banking division, building the capability frameworks for internal handoff.</p>
+          <div class="chips"><span class="chip">Team Leadership</span></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2004 – 2014</span>
+            <span class="node-place">Williamsburg, VA</span>
+          </div>
+          <h3>IT Director &rarr; Software Engineering Director &rarr; Sr. Director of Technology Strategy</h3>
+          <p class="node-sub">GuideStar USA (now Candid)</p>
+          <p class="node-body">Architected a private VMware cloud (99.99% uptime) as IT Director; stood up the org's first Agile and Scrum practices as Software Engineering Director; then as Sr. Director of Technology Strategy, served as Product Owner for Charity Check&trade; and Product Manager for the public search engine and API family, and co-founded the international BRIDGE partnership with Google.org, the Gates Foundation, and the Hewlett Foundation.</p>
+          <div class="chips"><span class="chip">Product Ownership</span><span class="chip">Cloud Architecture</span><span class="chip">Partnerships</span></div>
+        </div>
+      </div>
+
+      
+      <div class="node node-lead">
+        <div class="node-dot"></div>
+        <div class="node-card">
+          <div class="node-top">
+            <span class="node-date">2019 – Present</span>
+            <span class="node-place">Richmond, VA</span>
+          </div>
+          <h3>President, Board of Directors</h3>
+          <p class="node-sub">Agile Richmond</p>
+          <p class="node-body">Direct board governance, financial strategy, and community growth for the nonprofit supporting Agile practitioners across Central Virginia, including the annual InnoVAte Virginia conference for 1,500+ attendees — organizational leadership applied outside the day job.</p>
+        </div>
       </div>
 
     </div>
-  </header>
-  <!-- End Header -->
+  </div>
+</section>
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>What I Do</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.webp" class="img-fluid" alt="Braz Brandt" width="600" height="600" loading="lazy">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>Director of Delivery Operations</h3>
-          <h4>Cigna Healthcare | Fortune 15 Technology Leader</h4>
-          <p>
-            I lead Delivery Operations — Ways of Working, DevOps &amp; Environments, and Release Management — for Cigna Healthcare's Individual &amp; Family Plans business, a Fortune 15, SOX-governed technology organization. It's where two threads of my career meet: <em><strong>organizational leadership</strong></em>, going back to standing up GuideStar's first Agile and Scrum practices as their Software Engineering Director, and <em><strong>product</strong></em>, from my later roles there as Product Owner for Charity Check™ and Product Manager for our public search engine and API products. Today those threads run together: I'm co-leading IFP's shift from a project-funded delivery model into an SVPG-inspired product operating model, and I teach a Strategyzer-influenced curriculum that trains Product Managers company-wide to run hypothesis-driven experiments. I still lead the organizational side, too, as President of Agile Richmond's board.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1 804 495 1441</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Richmond, Virginia, USA</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>braz@braz.coach</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Calendar:</strong> <span><a href="http://meet.braz.coach" target="_blank">meet.braz.coach</a></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End About Me -->
-
-  </section><!-- End About Section -->
-
-  <!-- ======= Resume Section ======= -->
-  
-  <section id="resume" class="resume">
-    <div class="container">
-
-	<div class="section-title">
-        <h2>Resume</h2>
-        <p>Leadership and Experience</p>
-	</div>
-
-	<div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">SUMMARY</h3>
-          <div class="resume-item pb-0">
-            <h4>Braswell Brandt</h4>
-            <p><em>Thirty years bridging product strategy and organizational leadership — as Scrum Master, Product Owner, enterprise Agile Coach, and now technology director — helping organizations from startups to Fortune 100 and Fortune 15 companies build products their customers trust, and the teams and operating models that build them.</em></p>
-            <p><em>Now I'm Technology Director of Delivery Operations at Cigna Healthcare, one of the country's largest health insurers, where I direct Ways of Working, DevOps &amp; Environments, and Release Management; use DORA metrics to drive down lead time and cycle time; and co-lead the transformation of a project-funded delivery organization into an SVPG-inspired product operating model — while teaching a Strategyzer-influenced curriculum that trains Product Managers company-wide to run hypothesis-driven experiments.</em></p>
-          </div>
-
-          <h3 class="resume-title">EXPERIENCE</h3>
-
-          <div class="resume-item">
-            <h4>Technology Director, Delivery Operations<br/> Individual &amp; Family Plans at Cigna Healthcare</h4>
-            <h5>2023 – Present</h5>
-            <p><em>Richmond, VA</em></p>
-            <p>I direct Delivery Operations for Cigna's Individual &amp; Family Plans business across three integrated functions — Ways of Working, DevOps &amp; Environments, and Release Management — building the governance and portfolio practices that turn underbuilt delivery areas into predictable, auditable operations under SOX. I use DORA metrics (deployment frequency, lead time, change failure rate, MTTR) to drive down lead time and feature cycle time across delivery governance, team scorecards, and executive reporting, and I'm co-leading IFP's shift from a project-funded delivery model into an SVPG-inspired product organization, with distinct external-customer and internal-platform product lines carrying their own discovery, roadmap, and outcome ownership. As an internal enterprise coach, I co-developed and teach a Strategyzer-influenced curriculum that trains Product Managers company-wide to run incremental, hypothesis-driven market experiments. I've also led our GitHub Copilot adoption, built the GenAI tooling that turns raw technical commits into executive release summaries, and stood up AI-powered delivery analytics — all while coaching direct reports and senior delivery leaders through complex organizational transitions.</p>
-          </div>
-
-          <div class="resume-item">
-            <h4>Vice President, Enterprise Agile Coach at Truist</h4>
-            <h5>2022 – 2023</h5>
-            <p><em>Richmond VA, Charlotte NC, and Atlanta GA</em></p>
-            <p>I designed and aligned the enterprise technology operating model for a top-10 U.S. financial institution during a high-stakes post-merger integration, partnering with executives to reshape incentives, interfaces, and decision cadences so the organization could execute around products rather than silos. I used Intent-Based Leadership to build team autonomy, stabilizing operations ahead of a long-term handoff to internal owners. After a reduction in force tied to the broader economic climate, I joined Cigna Healthcare in May 2023.</p>
-          </div>
-
-          <div class="resume-item">
-            <h4>Enterprise Product and Agile Coach, Eliassen Group</h4>
-            <h5>2020 – 2022</h5>
-            <p><em>Richmond, VA and Client Sites</em></p>
-            <p>I worked with a Fortune 100 mortgage company to bring agility to their mission-critical business rules program, helping teams, people managers, and leaders align on outcomes and build a predictable system of work. I also partnered with a Fortune 150 financial services client's second-line risk organization — from their C-level leader down to individual contributors — to diagnose delivery problems, bridge executive strategy with engineering execution, and build "Empowered Teams Aligned to Deliver Value."</p>
-          </div>
-
-          <div class="resume-item">
-            <h4>Enterprise Agile &amp; Product Coach at CirrusLabs</h4>
-            <h5>2019 – 2020</h5>
-            <p><em>Richmond, VA and Client Sites</em></p>
-            <p>I helped one of the Big Four consulting firms and a Fortune 50 company implement Agile at scale using SAFe, leading a team of Agile Coaches while working directly with client leaders as they shifted their own practices and leadership to support organizational change. I also worked with a Fortune 100 financial services client to inspect, adapt, and expand their Agile adoption in credit card operations, aligning teams around value and shortening delivery cycle times while migrating infrastructure to cloud platforms.</p>
-          </div>
-
-        </div>
-
-        <div class="col-lg-6">
-
-          <h3 class="resume-title">&nbsp;</h3>
-
-          <div class="resume-item">
-			<h4>Enterprise Agile Coach at Agile Velocity</h4>
-			<h5>2017 – 2019</h5>
-			<p><em>Richmond, VA, Austin, TX, and Client Sites</em></p>
-			<p>I co-developed the first two major releases of the Path to Agility™ enterprise transformation framework, applying a "system of working as a product" lens to build its diagnostic and experimentation methodologies — an early precursor to the Strategyzer-influenced coaching curriculum I'd later build at Cigna. I led Southwest Airlines Marketing's business agility pilot — 92+ hours of usability testing and 14 site optimizations that generated millions in incremental revenue — and served as lead coach for a 250-person Southwest Airlines IT team that launched a scheduling application in three weeks, saving $5M in two months. I also coached Texas Mutual Insurance through an 18-month transformation that took releases from a 9-month cadence to a 2-week one.</p>
-		  </div>
-
-          <div class="resume-item">
-			<h4>Sr. Agile Coach &amp; Engagement Lead at SolutionsIQ</h4>
-			<h5>2014 – 2017</h5>
-			<p><em>Richmond, VA, and Client Sites</em></p>
-			<p>I led a team of 20+ coaches and consultants helping a large Fortune 100 financial services company adopt agility in their marketing operations division, then replicated that success across their entire retail banking division — applying agility to marketing, operations, and even retail construction — while building the capability frameworks that let our team hand the work off to internal owners.</p>
-		  </div>
-
-          <div class="resume-item">
-			<h4>IT Director &rarr; Software Engineering Director &rarr; Senior Director of Technology Strategy, GuideStar USA <span style="opacity:.6;font-size:.85em;">(now Candid)</span></h4>
-			<h5>2004 – 2014</h5>
-			<p><em>Williamsburg, VA</em></p>
-			<p>Over a decade at GuideStar I moved from IT Director — architecting a private VMware cloud that hit 99.99% uptime — to Software Engineering Director, where I stood up the organization's first Agile and Scrum delivery processes, and finally to Senior Director of Technology Strategy, where I combined product management with strategic partnerships. As GuideStar's Product Owner for Charity Check™, I translated nonprofit compliance and IRS eligibility rules into the data model and roadmap for a high-revenue regulatory search product handling HIPAA-like data sensitivity. As Product Manager for our public search engine and API family, I supported partnerships like AmazonSmile and the DonorsEdge product line for community foundations' online giving portals. In the same role, I co-founded the international BRIDGE partnership, aligning Google.org, the Gates Foundation, and the Hewlett Foundation around a shared data schema and universal numbering system for global NGOs.</p>
-		  </div>
-
-          <h3 class="resume-title">LEADERSHIP &amp; BOARD SERVICE</h3>
-
-          <div class="resume-item">
-            <h4>President, Board of Directors — Agile Richmond</h4>
-            <h5>2019 – Present</h5>
-            <p><em>Richmond, VA</em></p>
-            <p>I direct board governance, financial strategy, and community growth for Agile Richmond, the nonprofit supporting Agile practitioners and companies across Central Virginia. The highlight of our work is <em>InnoVAte Virginia</em>, our annual conference now serving roughly 1,500 members of our community each year — organizational leadership applied outside the day job.</p>
-          </div>
-
-        </div>
-	</div>
-
-   <br /><br />
-
-    <div class="section-title" style="text-align:center;" id="certifications">
-		<a href="https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner" name="Certified Scrum Professional – Product Owner" title="Certified Scrum Professional – Product Owner" target="_blank"><img src="assets/img/csppo-250px.png" height="150" loading="lazy"></a>
-				<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" name="Certified Scrum Professional – Scrum Master" title="Certified Scrum Professional – Scrum Master" target="_blank"><img src="assets/img/cspsm-250px.png" height="150" loading="lazy"></a>
-				<a href="https://www.scrumalliance.org/get-certified/agile-leadership/certified-agile-leadership" name="Certified Agile Leader" title="Certified Agile Leader" target="_blank"><img src="assets/img/cal1-250px.png" height="150" loading="lazy"></a>		
-				<a href="https://www.icagile.com/certification/agile-coaching" name="ICAgile Professional – Agile Coaching" title="ICAgile Professional – Agile Coaching" target="_blank"><img src="assets/img/icp-acc-250px.png" height="150" loading="lazy"></a>		
-				<a href="https://www.icagile.com/certification/agile-team-facilitation" name="ICAgile Professional – Agile Team Facilitation" title="ICAgile Professional – Agile Team Facilitation" target="_blank"><img src="assets/img/icp-atf-250px.png" height="150" loading="lazy"></a>
-				<a href="https://www.icagile.com/certification/enterprise-agile-coaching" name="ICAgile Professional – Enterprise Agile Coaching" title="ICAgile Professional – Enterprise Agile Coaching" target="_blank"><img src="assets/img/icp-ent-250px.png" height="150" loading="lazy"></a>
-				<a href="https://www.icagile.com/certification/coaching-agile-transformations" name="ICAgile Professional – Coaching Agile Transformations" title="ICAgile Professional – Coaching Agile Transformations" target="_blank"><img src="assets/img/icp-cat-250px.png" height="150" loading="lazy"></a>		
-				<a href="https://scaledagile.com/safe-certification/becoming-an-spc/" name="Certified SAFe® 6 Practice Consultant" title="Certified SAFe® 6 Practice Consultant" target="_blank"><img src="assets/img/spc6-250px.png" height="150" loading="lazy"></a>	
-				<a href="https://www.pragmaticinstitute.com/product/product-management-certification/" name="Pragmatic Product Manager" title="Pragmatic Product Manager" target="_blank"><img src="assets/img/pragmatic-product-manager-250px.png" height="150" loading="lazy"></a>
-				<a href="https://pathtoagility.com/coaches/" name="Path to Agility® Facilitator" title="Path to Agility® Facilitator" target="_blank"><img src="assets/img/p2a-facilitator-250px.png" height="150" loading="lazy"></a>	
-				<a href="https://agilityhealthradar.com/get-certified/" name="Certified Agility Health Facilitator" title="Certified Agility Health Facilitator" target="_blank"><img src="assets/img/ahf-250px.png" height="150" loading="lazy"></a>	
-
-	</div>
-
-	</div>
-
-	</div>
-  </section>  <!-- End Resume Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i>
-            <h3>Schedule a Meeting</h3>
-            <p><a href="https://braz.coach/meet" target="_blank">braz.coach/meet</a></p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></i>
-            <h3>Social</h3>
-            <div class="social-links">
-				<a href="https://bsky.app/profile/braz.me" rel="me" class="bluesky" target="_blank"><i class="bi bi-bluesky"> </i></a>
-				<a href="https://mastodon.social/@braz" rel="me" class="mastodon" target="_blank"><i class="bi bi-mastodon"> </i></a>
-				<a href="https://www.linkedin.com/in/brazbrandt/" class="linkedin" target="_blank"> <i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22 6 12 13 2 6"></polyline></svg></i>
-            <h3>Email</h3>
-            <p>braz@braz.coach</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i>
-            <h3>Call</h3>
-            <p>+1 804.495.1441</p>
-          </div>
-        </div>
-      </div>
-      <!--
-      <form action="/submit" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
-      -->
+<section id="credentials" data-panel aria-label="Credentials">
+  <div class="wrap">
+    <div class="section-label">credentials.json</div>
+    <h2 class="section-h">Certifications &amp; training</h2>
+    <div class="cert-grid">
+        <a class="cert" href="https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Certified Scrum Professional — Product Owner</span></a>
+        <a class="cert" href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Certified Scrum Professional — Scrum Master</span></a>
+        <a class="cert" href="https://www.scrumalliance.org/get-certified/agile-leadership/certified-agile-leadership" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Certified Agile Leader (CAL-1)</span></a>
+        <a class="cert" href="https://www.icagile.com/certification/agile-coaching" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>ICAgile — Agile Coaching</span></a>
+        <a class="cert" href="https://www.icagile.com/certification/agile-team-facilitation" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>ICAgile — Agile Team Facilitation</span></a>
+        <a class="cert" href="https://www.icagile.com/certification/enterprise-agile-coaching" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>ICAgile — Enterprise Agile Coaching</span></a>
+        <a class="cert" href="https://www.icagile.com/certification/coaching-agile-transformations" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>ICAgile — Coaching Agile Transformations</span></a>
+        <a class="cert" href="https://scaledagile.com/safe-certification/becoming-an-spc/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>SAFe&reg; 6 Practice Consultant</span></a>
+        <a class="cert" href="https://www.pragmaticinstitute.com/product/product-management-certification/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Pragmatic Certified Product Manager</span></a>
+        <a class="cert" href="https://pathtoagility.com/coaches/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Path to Agility&reg; Facilitator</span></a>
+        <a class="cert" href="https://agilityhealthradar.com/get-certified/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Certified Agility Health Facilitator</span></a>
     </div>
-  </section><!-- End Contact Section -->
+  </div>
+</section>
 
-  
+<section id="contact" data-panel aria-label="Contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-label">contact.sh</div>
+    <h2 class="section-h">Let's talk</h2>
+    <div class="status-panel">
+      <div class="status-row"><div class="label">Schedule</div><div class="value"><a href="https://braz.coach/meet" target="_blank" rel="noopener">braz.coach/meet</a></div></div>
+      <div class="status-row"><div class="label">Email</div><div class="value"><a href="mailto:braz@braz.coach">braz@braz.coach</a></div></div>
+      <div class="status-row"><div class="label">Call</div><div class="value"><a href="tel:+1 804.495.1441">+1 804.495.1441</a></div></div>
+      <div class="status-row"><div class="label">Status</div><div class="value">Open to what&rsquo;s next</div></div>
+    </div>
+  </div>
+</section>
+</main>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js" defer></script>
+<footer class="site-footer">braz.coach &middot; Richmond, VA &middot; open to what&rsquo;s next</footer>
 
-<footer>
-	<p style="align:right;font-size:xx-small;color:transparent;opacity:0%">
-		<a rel="me" href="https://mastodon.social/@braz">Find me on mastodon.social</a>
-	</p>
-</footer>
+<!-- Mastodon rel=me domain verification (kept from the previous design; do not remove) -->
+<p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+  <a rel="me" href="https://mastodon.social/@braz">Find me on mastodon.social</a>
+</p>
+
+<script src="assets/js/main.js" defer></script>
+
+
+<div id="print-resume">
+  <div class="p-page">
+    <h1 class="p-name">Braswell Brandt, Jr.</h1>
+    <div class="p-contact">
+      Richmond, VA <span>&bull;</span> +1 804.495.1441 <span>&bull;</span> braz@braz.coach <span>&bull;</span> linkedin.com/in/brazbrandt <span>&bull;</span> braz.coach
+    </div>
+
+    <h2 class="p-section-title">Professional Summary</h2>
+    <div class="p-summary">Product strategy and organizational leadership executive with 30 years of experience &mdash; Scrum Master, Product Owner, enterprise Agile Coach, and now Technology Director &mdash; helping organizations from startups to Fortune 100 and Fortune 15 companies build products their customers trust, and the teams and operating models that build them. Currently directs Delivery Operations at Cigna Healthcare, co-leading the shift of a project-funded delivery organization into an SVPG-inspired product operating model and teaching a Strategyzer-influenced curriculum that trains Product Managers company-wide.</div>
+
+    <h2 class="p-section-title">Core Competencies</h2>
+    <table class="p-comp-table"><tr><td class="p-comp-label">PRODUCT &amp; STRATEGY</td><td class="p-comp-values">Product Vision &amp; Roadmap Ownership &bull; SVPG-Aligned Product Operating Models &bull; Strategyzer / Hypothesis-Driven Experimentation &bull; Regulatory &amp; Data Product Design</td></tr><tr><td class="p-comp-label">ORGANIZATIONAL LEADERSHIP</td><td class="p-comp-values">Operating Model &amp; Org Design &bull; Enterprise Agile &amp; Executive Coaching &bull; Intent-Based Leadership &bull; Board Governance</td></tr><tr><td class="p-comp-label">DELIVERY &amp; OPERATIONS</td><td class="p-comp-values">Release Management &amp; DevSecOps &bull; DORA Metrics &amp; Flow &bull; SOX/HIPAA Regulated Delivery &bull; AI-Powered Delivery Analytics</td></tr></table>
+
+    <h2 class="p-section-title">Professional Experience</h2>
+    
+    <div class="p-job">
+      <div class="p-job-header"><span>CIGNA HEALTHCARE</span><span>Richmond, VA</span></div>
+      <div class="p-job-sub"><span>Technology Director, Delivery Operations</span><span>2023 &ndash; Present</span></div>
+      <ul class="p-job-bullets"><li>Direct Delivery Operations for Individual &amp; Family Plans across Ways of Working, DevOps &amp; Environments, and Release Management, building the governance and portfolio practices that convert underbuilt delivery areas into predictable, auditable operations under SOX.</li><li>Use DORA metrics (deployment frequency, lead time, change failure rate, MTTR) to drive down lead time and feature cycle time across delivery governance, team scorecards, and executive reporting.</li><li>Co-leading IFP&rsquo;s shift from a project-funded delivery model into an SVPG-inspired product organization, with distinct external-customer and internal-platform product lines.</li><li>Co-developed and teach a Strategyzer-influenced curriculum that trains Product Managers company-wide to run hypothesis-driven experiments.</li><li>Led GitHub Copilot adoption, built GenAI-powered release communication, and stood up AI-powered delivery analytics across the portfolio.</li><li>Coach direct reports and senior delivery leaders through complex organizational transitions.</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>TRUIST</span><span>Richmond VA, Charlotte NC, Atlanta GA</span></div>
+      <div class="p-job-sub"><span>Vice President, Enterprise Agile Coach</span><span>2022 &ndash; 2023</span></div>
+      <ul class="p-job-bullets"><li>Designed and aligned the enterprise technology operating model for a top-10 U.S. financial institution during a high-stakes post-merger integration.</li><li>Applied Intent-Based Leadership to build team autonomy, stabilizing operations ahead of a long-term handoff to internal owners.</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>ELIASSEN GROUP</span><span>Richmond, VA and Client Sites</span></div>
+      <div class="p-job-sub"><span>Enterprise Product and Agile Coach</span><span>2020 &ndash; 2022</span></div>
+      <ul class="p-job-bullets"><li>Brought agility to a Fortune 100 mortgage company&rsquo;s mission-critical business rules program.</li><li>Partnered with a Fortune 150 financial services client&rsquo;s second-line risk organization to build &ldquo;Empowered Teams Aligned to Deliver Value.&rdquo;</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>CIRRUSLABS</span><span>Richmond, VA and Client Sites</span></div>
+      <div class="p-job-sub"><span>Enterprise Agile &amp; Product Coach</span><span>2019 &ndash; 2020</span></div>
+      <ul class="p-job-bullets"><li>Helped a Big Four consulting firm and a Fortune 50 company scale Agile using SAFe.</li><li>Aligned teams around value and shortened delivery cycle times for a Fortune 100 credit card operations division migrating to the cloud.</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>AGILE VELOCITY</span><span>Austin, TX / Richmond, VA and Client Sites</span></div>
+      <div class="p-job-sub"><span>Enterprise Agile Coach</span><span>2017 &ndash; 2019</span></div>
+      <ul class="p-job-bullets"><li>Co-developed the Path to Agility&trade; transformation framework &mdash; an early precursor to the Strategyzer-influenced coaching curriculum built later at Cigna.</li><li>Led Southwest Airlines Marketing&rsquo;s business agility pilot, generating millions in incremental revenue, and a 250-person Southwest IT team&rsquo;s 3-week scheduling-app launch that saved $5M in two months.</li><li>Coached Texas Mutual Insurance from a 9-month to a 2-week release cadence.</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>SOLUTIONSIQ</span><span>Richmond, VA and Client Sites</span></div>
+      <div class="p-job-sub"><span>Sr. Agile Coach &amp; Engagement Lead</span><span>2014 &ndash; 2017</span></div>
+      <ul class="p-job-bullets"><li>Led a 20+ person consulting team scaling product delivery structures across a Fortune 100 retail banking division, building the capability frameworks for internal handoff.</li></ul>
+    </div>
+
+    <div class="p-job">
+      <div class="p-job-header"><span>GUIDESTAR USA (now Candid)</span><span>Williamsburg, VA</span></div>
+      <div class="p-job-sub"><span>IT Director &rarr; Software Engineering Director &rarr; Sr. Director of Technology Strategy</span><span>2004 &ndash; 2014</span></div>
+      <ul class="p-job-bullets"><li>Architected a private VMware cloud achieving 99.99% uptime as IT Director.</li><li>Stood up the organization&rsquo;s first Agile and Scrum delivery practices as Software Engineering Director.</li><li>As Sr. Director of Technology Strategy: served as Product Owner for Charity Check&trade; and Product Manager for the public search engine and API family; co-founded the international BRIDGE partnership with Google.org, the Gates Foundation, and the Hewlett Foundation.</li></ul>
+    </div>
+
+
+    <h2 class="p-section-title">Leadership &amp; Board Service</h2>
+    
+    <div class="p-job">
+      <div class="p-job-header"><span>AGILE RICHMOND</span><span>Richmond, VA</span></div>
+      <div class="p-job-sub"><span>President, Board of Directors</span><span>2019 &ndash; Present</span></div>
+      <ul class="p-job-bullets"><li>Direct board governance and financial strategy for a regional technology education nonprofit; lead volunteer teams executing the annual InnoVAte Virginia conference for 1,500+ attendees.</li></ul>
+    </div>
+
+
+    <h2 class="p-section-title">Education</h2>
+    <div class="p-edu">
+      <div class="p-edu-header"><span>James Madison University</span><span>Harrisonburg, VA</span></div>
+      <div class="p-edu-sub">Bachelor of Individualized Study (BIS) in Independent Studies &bull; Expected 2027</div>
+      <ul class="p-edu-bullets">
+        <li>Concentration: Organizational Leadership and Change Management</li>
+        <li>4.0 GPA, Junior standing; pending induction into Alpha Sigma Lambda Honors Society</li>
+      </ul>
+    </div>
+    <div class="p-edu">
+      <div class="p-edu-header"><span>William &amp; Mary</span><span>Williamsburg, VA</span></div>
+      <div class="p-edu-sub">Attended &bull; 1992 &ndash; 1994</div>
+    </div>
+
+    <h2 class="p-section-title">Certifications</h2>
+    <ul class="p-certs">
+      <li>SAFe&reg; 6.0 Practice Consultant (SPC)</li>
+      <li>Certified Scrum Professional (CSP-SM, CSP-PO)</li>
+      <li>Certified Agile Leadership (CAL-1)</li>
+      <li>Agile Coaching (ICP-ACC, ICP-ATF, ICP-ENT, ICP-CAT)</li>
+      <li>Certified Product Manager (Pragmatic Institute)</li>
+      <li>Path to Agility&reg; Facilitator &bull; Certified Agility Health Facilitator</li>
+    </ul>
+  </div>
+</div>
+
 
 </body>
-
 </html>

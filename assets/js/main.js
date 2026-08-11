@@ -1,188 +1,69 @@
 /**
-* Based on: Personal - v4.2.0 (BootstrapMade.com)
-* Trimmed to only the behavior this site actually uses:
-* mobile nav toggle, hash-based section routing, and the contact form handler.
+* braz.coach -- click-to-reveal section nav.
+* Nav links act as disclosure buttons: clicking one shows that section and
+* hides the others (one open at a time), updates aria-expanded on the
+* trigger, and keeps the URL hash in sync for deep-linking. Defaults to the
+* Experience section open on load unless a different section is hash-linked.
+* If JS never runs, style.css's `noscript` rule forces every section visible.
 */
-(function() {
+(function () {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
+  var DEFAULT_SECTION = "experience";
+
+  var navLinks = [].slice.call(document.querySelectorAll("nav.hero-nav a[data-target]"));
+  var sections = [].slice.call(document.querySelectorAll("main section[data-panel]"));
+  var brand = document.querySelector(".brand-home");
+
+  function showPanel(id, scroll) {
+    sections.forEach(function (s) {
+      s.classList.toggle("is-open", s.id === id);
+    });
+    navLinks.forEach(function (a) {
+      var isActive = a.getAttribute("data-target") === id;
+      a.classList.toggle("is-active", isActive);
+      a.setAttribute("aria-expanded", isActive ? "true" : "false");
+    });
+    document.body.classList.add("panel-open");
+    if (scroll) {
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+  function hideAll() {
+    sections.forEach(function (s) { s.classList.remove("is-open"); });
+    navLinks.forEach(function (a) {
+      a.classList.remove("is-active");
+      a.setAttribute("aria-expanded", "false");
+    });
+    document.body.classList.remove("panel-open");
+  }
 
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+  navLinks.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var id = a.getAttribute("data-target");
+      if (a.classList.contains("is-active")) {
+        hideAll();
+        history.replaceState(null, "", location.pathname + location.search);
       } else {
-        selectEl.addEventListener(type, listener)
+        showPanel(id, true);
+        history.replaceState(null, "", "#" + id);
       }
-    }
-  }
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
-
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
-
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
-
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
-
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
-      }
-    }
+    });
   });
 
-  /**
-   * Contact Form submission handler
-   */
-  const contactForm = select('form[action="/submit"]');
-  if (contactForm) {
-    on('submit', 'form[action="/submit"]', function(e) {
+  if (brand) {
+    brand.addEventListener("click", function (e) {
       e.preventDefault();
-
-      let thisForm = this;
-      let action = thisForm.getAttribute('action');
-      let loading = thisForm.querySelector('.loading');
-      let errorMessage = thisForm.querySelector('.error-message');
-      let sentMessage = thisForm.querySelector('.sent-message');
-
-      loading.classList.add('d-block');
-      errorMessage.classList.remove('d-block');
-      sentMessage.classList.remove('d-block');
-
-      const formData = new FormData(thisForm);
-
-      fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: {'X-Requested-With': 'XMLHttpRequest'}
-      })
-      .then(response => {
-        if (response.ok) {
-          return response.text();
-        } else {
-          throw new Error(`${response.status} ${response.statusText}`);
-        }
-      })
-      .then(data => {
-        loading.classList.remove('d-block');
-        if (data.trim() == 'OK') {
-          sentMessage.classList.add('d-block');
-          thisForm.reset();
-        } else {
-          throw new Error(data ? data : 'Form submission failed and no error message was provided.');
-        }
-      })
-      .catch((error) => {
-        loading.classList.remove('d-block');
-        errorMessage.innerHTML = error.toString();
-        errorMessage.classList.add('d-block');
-      });
+      hideAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", location.pathname + location.search);
     });
   }
 
-})()
+  var initialHash = window.location.hash.replace("#", "");
+  var initialSection = (initialHash && document.getElementById(initialHash)) ? initialHash : DEFAULT_SECTION;
+  showPanel(initialSection, false);
+})();
