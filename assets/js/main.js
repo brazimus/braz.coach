@@ -113,25 +113,36 @@
       markIntroSeen();
     }
 
-    function eraseText(el, speed, done) {
+    // Base +/- jitter, per keystroke, so the animation doesn't look like a
+    // uniform paste. Never go below 20ms so it can't roll a negative delay.
+    function keyDelay(base, jitter) {
+      var min = Math.max(20, base - jitter);
+      var max = base + jitter;
+      return min + Math.random() * (max - min);
+    }
+
+    function eraseText(el, done) {
       (function step() {
         var text = el.textContent;
         if (text.length > 0) {
           el.textContent = text.slice(0, -1);
-          setTimeout(step, speed);
+          setTimeout(step, keyDelay(45, 25));
         } else if (done) {
           done();
         }
       })();
     }
 
-    function typeText(el, text, speed, done) {
+    function typeText(el, text, done) {
       var i = 0;
       (function step() {
         el.textContent = text.slice(0, i);
+        var justTyped = i > 0 ? text.charAt(i - 1) : "";
         i++;
         if (i <= text.length) {
-          setTimeout(step, speed);
+          var delay = keyDelay(65, 40);
+          if (justTyped === " ") delay += 140; // brief pause between words
+          setTimeout(step, delay);
         } else if (done) {
           done();
         }
@@ -148,12 +159,14 @@
         target.scrollIntoView({ behavior: "auto", block: "start" });
         return;
       }
-      eraseText(cmdEl, 55, function () {
-        typeText(cmdEl, "cat experience.log", 55, function () {
-          setTimeout(function () {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 400);
-        });
+      eraseText(cmdEl, function () {
+        setTimeout(function () {
+          typeText(cmdEl, "cat experience.log", function () {
+            setTimeout(function () {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 400);
+          });
+        }, 400);
       });
     }
 
