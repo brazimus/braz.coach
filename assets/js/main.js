@@ -3,7 +3,7 @@
 * Nav links act as disclosure buttons: clicking one shows that section and
 * hides the others (one open at a time), updates aria-expanded on the
 * trigger, and keeps the URL hash in sync for deep-linking. Defaults to the
-* Experience section open on load unless a different section is hash-linked.
+* About section open on load unless a different section is hash-linked.
 * The nav sits right below the hero and pins to the top of the viewport on
 * scroll (CSS `position: sticky` -- no JS needed for the sticking itself).
 * Two separate "Braz Brandt" brand-home links exist (hero headline + the
@@ -26,9 +26,9 @@
 (function () {
   "use strict";
 
-  var DEFAULT_SECTION = "experience";
+  var DEFAULT_SECTION = "about";
   var COMMANDS = {
-    about: "less about.md",
+    about: "whoami",
     experience: "cat experience.log",
     credentials: "jq . credentials.json",
     contact: "chmod +x contact.sh"
@@ -159,7 +159,7 @@
   updateStickyCmd(initialSection, false);
 
   /**
-   * One-time-per-session scroll-cue chevron. Experience is already open by
+   * One-time-per-session scroll-cue chevron. About is already open by
    * default, but on most screens it's below the fold behind the hero -- a
    * visitor who never scrolls never sees it. On a first-time, cold (no deep
    * link) visit, the chevron at the bottom of the hero lights up
