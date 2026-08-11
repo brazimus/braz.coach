@@ -106,7 +106,7 @@ a:focus-visible, button:focus-visible {
   border-radius: 2px;
 }
 
-header.hero { padding: 100px 0 60px; }
+header.hero { position: relative; padding: 64px 0 40px; }
 .prompt {
   font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);
   margin-bottom: 18px; display:flex; align-items:center; gap:10px;
@@ -136,6 +136,25 @@ p.role-line {
   max-width: 620px; color: var(--ink-dim); font-size: clamp(16px,2vw,19px); margin: 0 0 36px;
 }
 p.role-line strong { color: var(--ink); }
+
+/* First-load-only scroll invitation. Hidden by default; JS reveals it on a
+   cold visit and hides it again on the first scroll/click, same lifecycle
+   as the terminal intro nudge below (shares its "seen" flag). */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule);
+  color: var(--ink-dim); text-decoration: none;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease, border-color .2s ease, color .2s ease;
+}
+.scroll-cue.is-visible { opacity: 1; pointer-events: auto; animation: bob 1.8s ease-in-out infinite; }
+.scroll-cue:hover { border-color: var(--accent); color: var(--accent); }
+.scroll-cue svg { width: 16px; height: 16px; }
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px); }
+}
 .socials { display:flex; gap: 12px; margin-top: 36px; }
 .socials a {
   width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--rule);
@@ -282,6 +301,7 @@ footer.site-footer { padding: 30px 0 70px; text-align:center; font-family:'JetBr
   .prompt .caret { animation: none; opacity: 1; }
   .status .pulse { animation: none; box-shadow: none; }
   main section[data-panel].is-open { animation: none; }
+  .scroll-cue.is-visible { animation: none; }
 }
 
 /* ---------- noscript fallback: if JS is unavailable, show everything ---------- */

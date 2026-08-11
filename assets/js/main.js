@@ -72,14 +72,17 @@
   showPanel(initialSection, false);
 
   /**
-   * One-time hero intro nudge. Experience is already open by default, but on
-   * most screens it's below the fold behind the hero -- a visitor who never
-   * scrolls never sees it. If a first-time, cold (no deep link) visitor
-   * hasn't scrolled or clicked anything after 30s, "type" the terminal
-   * prompt from whoami to cat experience.log (matching the section's own
-   * experience.log label) and scroll Experience into view. Any scroll or
-   * click cancels it immediately. Runs at most once ever per browser
-   * (localStorage) -- after that the pattern is established.
+   * One-time hero intro affordances. Experience is already open by default,
+   * but on most screens it's below the fold behind the hero -- a visitor
+   * who never scrolls never sees it. On a first-time, cold (no deep link)
+   * visit: a small scroll-cue chevron appears immediately at the bottom of
+   * the hero (a plain #experience anchor -- native CSS scroll-behavior and
+   * scroll-margin-top do the work, no JS needed for the scroll itself), and
+   * if nothing's been scrolled or clicked after 30s, the terminal prompt
+   * "types" from whoami to cat experience.log (matching the section's own
+   * experience.log label) and scrolls Experience into view as a fallback.
+   * Any scroll or click cancels/hides both immediately. Runs at most once
+   * ever per browser (localStorage) -- after that the pattern is established.
    */
   var INTRO_DELAY_MS = 30000;
   var INTRO_KEY = "braz-coach-intro-seen";
@@ -94,10 +97,18 @@
 
   if (!initialHash && initialSection === DEFAULT_SECTION && !introSeen()) {
     var cmdEl = document.querySelector(".prompt .cmd");
+    var chevron = document.querySelector(".scroll-cue");
     var introTimer = null;
+
+    if (chevron) chevron.classList.add("is-visible");
+
+    function hideChevron() {
+      if (chevron) chevron.classList.remove("is-visible");
+    }
 
     function cancelIntro() {
       if (introTimer) { clearTimeout(introTimer); introTimer = null; }
+      hideChevron();
       markIntroSeen();
     }
 
@@ -128,6 +139,7 @@
 
     function runIntro() {
       markIntroSeen();
+      hideChevron();
       var target = document.getElementById("experience");
       if (!cmdEl || !target) return;
       if (reduceMotion) {
