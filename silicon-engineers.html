@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Directing Silicon Engineers · Braz Brandt</title>
+  <meta name="description" content="PM/PO Community of Practice talk: what product management still buys you when the engineer is made of silicon. Slides from Braz Brandt.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Directing Silicon Engineers">
+  <meta property="og:description" content="What Product Management Still Buys You When the Engineer Is Made of Silicon — a talk by Braz Brandt.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://braz.coach/silicon-engineers">
+  <meta property="og:site_name" content="braz.coach">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Directing Silicon Engineers">
+  <meta name="twitter:description" content="What Product Management Still Buys You When the Engineer Is Made of Silicon — a talk by Braz Brandt.">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Main CSS (self-hosted fonts + design tokens live here) -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "89844358ab2a4f8a9c56933dbba6cb9c"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+  <style>
+    /* Page-specific styling for this standalone talk page. Reuses the site's
+       tokens (fonts/colors via CSS custom properties from style.css) but
+       avoids the bare `main section[data-panel]` rules that drive index.html's
+       JS-controlled section swapping — this page has no such sections. */
+    body { position: static; min-height: 100vh; }
+
+    .talk-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 32px 90px;
+    }
+
+    .talk-header { margin-bottom: 40px; }
+    .talk-header .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; color: var(--ink-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .talk-header .back-link svg { width: 14px; height: 14px; }
+    .talk-header .back-link:hover { color: var(--accent); }
+
+    .talk-hero .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .talk-hero .eyebrow::before { content: "//"; color: var(--ink-faint); }
+
+    .talk-hero h1 {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: clamp(34px, 5vw, 48px); line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--ink); margin: 0 0 14px;
+    }
+    .talk-hero .subtitle {
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px;
+      color: var(--ink-dim); margin: 0 0 18px;
+    }
+    .talk-hero .byline {
+      font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+      color: var(--ink-faint); margin-bottom: 28px;
+    }
+    .talk-hero .abstract {
+      font-size: 16px; line-height: 1.8; color: var(--ink-dim); max-width: 60ch;
+    }
+
+    .talk-links {
+      display: grid; grid-template-columns: 1fr;
+      padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--rule);
+    }
+    .talk-links .link-box {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px; border: 1px solid var(--rule); border-radius: 8px;
+      background: var(--panel); text-decoration: none; transition: border-color .2s, background .2s;
+    }
+    .talk-links .link-box:hover { border-color: var(--accent); background: var(--panel-2); }
+    .talk-links .link-box:hover .link-icon { border-color: var(--accent); color: var(--accent); }
+
+    .talk-links .link-icon {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center;
+      color: var(--ink-dim); transition: all .2s;
+    }
+    .talk-links .link-icon svg { width: 19px; height: 19px; }
+
+    .talk-links .link-title {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px;
+      color: var(--ink); display: block;
+    }
+    .talk-links .link-sub {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); margin-top: 3px; display: block;
+    }
+
+    .talk-footer {
+      padding-top: 40px; margin-top: 20px;
+      font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink-faint);
+    }
+    .talk-footer a { color: var(--accent); text-decoration: none; }
+    .talk-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+  <div class="talk-page">
+
+    <header class="talk-header">
+      <a class="back-link" href="index.html#about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        braz.coach
+      </a>
+    </header>
+
+    <div class="talk-hero">
+      <div class="eyebrow">PM/PO Community of Practice</div>
+      <h1>Directing Silicon Engineers</h1>
+      <div class="subtitle">What Product Management Still Buys You When the Engineer Is Made of Silicon</div>
+      <div class="byline">Braz Brandt &middot; Technology Director &amp; Director of Delivery Operations, Cigna</div>
+      <p class="abstract">
+        Agentic AI tools — Claude Code, Codex, Antigravity — don't just answer a question, they take dozens of steps toward a goal before checking back in, and this talk calls that a "silicon engineer." It argues that when the engineer stops being human, the PM/PO's job doesn't disappear — some of it is skill you already have, and some of it is genuinely new muscle. The evidence runs across three personal projects and a Fortune 15 delivery org, run by the same person, testing the same patterns at very different scale.
+      </p>
+    </div>
+
+    <div class="talk-links">
+      <a class="link-box" href="assets/presentations/silicon-engineers/Directing-Silicon-Engineers.pdf" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="18" x2="12" y2="21"></line></svg>
+        </span>
+        <span>
+          <span class="link-title">View the Slides</span>
+          <span class="link-sub">PDF &middot; full deck</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="talk-footer">
+      <a href="index.html#about">&larr; Back to braz.coach</a>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
